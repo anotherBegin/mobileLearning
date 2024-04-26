@@ -10,5 +10,5 @@
 # 3.安装Visual Studio Code
 ### Visual Studio Code包含在Anaconda中,可以直接运行
 ![test1/vscode_1.png](https://github.com/anotherBegin/mobileLearning/blob/main/test1/vscode_1.png?raw=true)
-### 在vscode中创建一个Jupiter Notebook文件
+### 在vscode中创建一个Jupyter Notebook文件，运行一个简单程序
 ![test1/vscode_2.png](https://github.com/anotherBegin/mobileLearning/blob/main/test1/vscode_2.png?raw=true)
