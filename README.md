@@ -3,6 +3,6 @@
 ### test2：实验2_1_实现第一个Kotlin应用、实验2_2_构建CameraX应用
 源代码：MyFirstApp、CameraXApp
 ### test3：实验3_Notebook基础实践
-*markdown文件在test3文件夹中
+*test3.md文件在test3文件夹中
 ### test4：实验4_实现图像分类APP
 源代码：TFLClassify
