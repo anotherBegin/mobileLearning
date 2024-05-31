@@ -1,4 +1,6 @@
-1.打印一段字符
+# 熟悉Jupyter Notebook
+
+1. 输入一行代码，查看执行效果
 
 
 ```python
@@ -8,7 +10,7 @@ print('Hello World!')
     Hello World!
     
 
-
+2. 显示短暂的In [*]过程
 
 
 ```python
@@ -16,7 +18,7 @@ import time
 time.sleep(3)
 ```
 
-
+3. 导入numpy，定义square函数
 
 
 ```python
@@ -25,7 +27,7 @@ def square(x):
     return x * x
 ```
 
-
+4. 使用np和square
 
 
 ```python
@@ -37,7 +39,9 @@ print('%d squared is %d' % (x, y))
     6 squared is 36
     
 
+# 数据分析的例子
 
+1. 导入相关的工具库
 
 
 ```python
@@ -47,7 +51,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-
+2. 加载数据集
 
 
 ```python
@@ -55,7 +59,7 @@ url = "https://raw.githubusercontent.com/anotherBegin/mobileLearning/main/test3/
 df = pd.read_csv(url)
 ```
 
-
+3. 检查数据集
 
 
 ```python
@@ -134,8 +138,6 @@ df.head()
   </tbody>
 </table>
 </div>
-
-
 
 
 
@@ -219,14 +221,14 @@ df.tail()
 
 
 
-
+4. 对数据属性列进行重命名
 
 
 ```python
 df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
 ```
 
-
+5. 检查数据条目是否加载完整
 
 
 ```python
@@ -240,7 +242,7 @@ len(df)
 
 
 
-
+6. 检查属性列的类型
 
 
 ```python
@@ -259,7 +261,7 @@ df.dtypes
 
 
 
-
+7. 利用正则表达式进行检查
 
 
 ```python
@@ -342,7 +344,7 @@ df.loc[non_numberic_profits].head()
 
 
 
-
+8. 统计存在多少条profit这一列为字符串的记录
 
 
 ```python
@@ -356,7 +358,7 @@ len(df.profit[non_numberic_profits])
 
 
 
-
+9. 使用直方图显示按照年份的分布情况
 
 
 ```python
@@ -365,11 +367,11 @@ bin_sizes, _, _ = plt.hist(df.year[non_numberic_profits], bins=range(1955, 2006)
 
 
     
-![png](test3_files/test3_27_0.png)
+![png](test3_files/test3_28_0.png)
     
 
 
-
+10. 删除这些记录
 
 
 ```python
@@ -377,7 +379,7 @@ df = df.loc[~non_numberic_profits]
 df.profit = df.profit.apply(pd.to_numeric)
 ```
 
-
+11. 再次检查数据记录的条目数
 
 
 ```python
@@ -388,8 +390,6 @@ len(df)
 
 
     25131
-
-
 
 
 
@@ -410,7 +410,9 @@ df.dtypes
 
 
 
+### 使用matplotlib进行绘图
 
+1. 以年分组绘制平均利润和收入
 
 
 ```python
@@ -426,8 +428,6 @@ def plot(x, y, ax, title, y_label):
 ```
 
 
-
-
 ```python
 fig, ax = plt.subplots()
 plot(x, y1, ax, 'Increase in mean Fortune 500 company profits from 1955 to 2005', 'Profit (millions)')
@@ -439,7 +439,7 @@ plot(x, y1, ax, 'Increase in mean Fortune 500 company profits from 1955 to 2005'
     
 
 
-
+2. 绘制收入曲线
 
 
 ```python
@@ -454,7 +454,7 @@ plot(x, y2, ax, 'Increase in mean Fortune 500 company revenues from 1955 to 2005
     
 
 
-
+3. 对数据结果进行标准差处理
 
 
 ```python
