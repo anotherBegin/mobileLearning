@@ -48,12 +48,10 @@ print('%d squared is %d' % (x, y))
 def selection_sort(arr):
     n = len(arr)
     for i in range(n):
-        # Find the minimum element in remaining unsorted array
         min_idx = i
         for j in range(i+1, n):
             if arr[j] < arr[min_idx]:
                 min_idx = j
-        # Swap the found minimum element with the first element
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
 ```
@@ -63,13 +61,10 @@ def selection_sort(arr):
 
 ```python
 def test():
-    # Taking input from the user
     arr = list(map(int, input("请输入一组数字，用空格分隔: ").split()))
     
-    # Sorting the array using selection_sort function
     sorted_arr = selection_sort(arr)
     
-    # Printing the sorted array
     print("排序后的结果是:", sorted_arr)
 ```
 
