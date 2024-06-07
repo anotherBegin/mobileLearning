@@ -6,3 +6,4 @@
 *test3.md文件在test3文件夹中
 ### test4：实验4_实现图像分类APP
 源代码：TFLClassify
+### test5：5_1_TFLite模型生成、5_2_TF石头剪刀布模型生成
