@@ -210,6 +210,8 @@ class MainActivity : AppCompatActivity() {
 
         // TODO 1: Add class variable TensorFlow Lite Model
         private val flowerModel = FlowerModel.newInstance(ctx)
+        // Initializing the flowerModel by lazy so that it runs in the same thread when the process
+        // method is called.
 
         // TODO 6. Optional GPU acceleration
 
