@@ -1,4 +1,6 @@
-1.打印一段字符
+# Notebook基本概念
+
+1. 输入一行代码，查看执行效果
 
 
 ```python
@@ -8,7 +10,7 @@ print('Hello World!')
     Hello World!
     
 
-
+2. 显示短暂的In [*]过程
 
 
 ```python
@@ -16,7 +18,7 @@ import time
 time.sleep(3)
 ```
 
-
+3. 导入numpy，定义square函数
 
 
 ```python
@@ -25,7 +27,7 @@ def square(x):
     return x * x
 ```
 
-
+4. 使用np和square
 
 
 ```python
@@ -34,10 +36,52 @@ y = square(x)
 print('%d squared is %d' % (x, y))
 ```
 
-    6 squared is 36
+    5 squared is 25
     
 
+# 熟悉基本的Python语法
 
+1. 定义selection_sort函数执行选择排序功能
+
+
+```python
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+```
+
+2. 定义test函数进行测试
+
+
+```python
+def test():
+    arr = list(map(int, input("请输入一组数字，用空格分隔: ").split()))
+    
+    sorted_arr = selection_sort(arr)
+    
+    print("排序后的结果是:", sorted_arr)
+```
+
+3. 执行程序
+
+
+```python
+test()
+```
+
+    请输入一组数字，用空格分隔: 12 43 65 74 19
+    排序后的结果是: [12, 19, 43, 65, 74]
+    
+
+# 数据分析
+
+1. 导入相关的工具库
 
 
 ```python
@@ -47,7 +91,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-
+2. 加载数据集
 
 
 ```python
@@ -55,7 +99,7 @@ url = "https://raw.githubusercontent.com/anotherBegin/mobileLearning/main/test3/
 df = pd.read_csv(url)
 ```
 
-
+3. 检查数据集
 
 
 ```python
@@ -66,19 +110,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -138,8 +169,6 @@ df.head()
 
 
 
-
-
 ```python
 df.tail()
 ```
@@ -148,19 +177,6 @@ df.tail()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -219,14 +235,14 @@ df.tail()
 
 
 
-
+4. 对数据属性列进行重命名
 
 
 ```python
 df.columns = ['year', 'rank', 'company', 'revenue', 'profit']
 ```
 
-
+5. 检查数据条目是否加载完整
 
 
 ```python
@@ -240,7 +256,7 @@ len(df)
 
 
 
-
+6. 检查属性列的类型
 
 
 ```python
@@ -259,7 +275,7 @@ df.dtypes
 
 
 
-
+7. 利用正则表达式进行检查
 
 
 ```python
@@ -271,19 +287,6 @@ df.loc[non_numberic_profits].head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -342,7 +345,7 @@ df.loc[non_numberic_profits].head()
 
 
 
-
+8. 统计存在多少条profit这一列为字符串的记录
 
 
 ```python
@@ -356,7 +359,7 @@ len(df.profit[non_numberic_profits])
 
 
 
-
+9. 使用直方图显示按照年份的分布情况
 
 
 ```python
@@ -365,11 +368,11 @@ bin_sizes, _, _ = plt.hist(df.year[non_numberic_profits], bins=range(1955, 2006)
 
 
     
-![png](test3_files/test3_27_0.png)
+![png](output_35_0.png)
     
 
 
-
+10. 删除这些记录
 
 
 ```python
@@ -377,7 +380,7 @@ df = df.loc[~non_numberic_profits]
 df.profit = df.profit.apply(pd.to_numeric)
 ```
 
-
+11. 再次检查数据记录的条目数
 
 
 ```python
@@ -388,8 +391,6 @@ len(df)
 
 
     25131
-
-
 
 
 
@@ -410,7 +411,9 @@ df.dtypes
 
 
 
+# 数据图形绘制
 
+1. 以年分组绘制平均利润和收入
 
 
 ```python
@@ -426,8 +429,6 @@ def plot(x, y, ax, title, y_label):
 ```
 
 
-
-
 ```python
 fig, ax = plt.subplots()
 plot(x, y1, ax, 'Increase in mean Fortune 500 company profits from 1955 to 2005', 'Profit (millions)')
@@ -435,11 +436,11 @@ plot(x, y1, ax, 'Increase in mean Fortune 500 company profits from 1955 to 2005'
 
 
     
-![png](test3_files/test3_37_0.png)
+![png](output_44_0.png)
     
 
 
-
+2. 绘制收入曲线
 
 
 ```python
@@ -450,11 +451,11 @@ plot(x, y2, ax, 'Increase in mean Fortune 500 company revenues from 1955 to 2005
 
 
     
-![png](test3_files/test3_39_0.png)
+![png](output_46_0.png)
     
 
 
-
+3. 对数据结果进行标准差处理
 
 
 ```python
@@ -473,6 +474,11 @@ fig.tight_layout()
 
 
     
-![png](test3_files/test3_41_0.png)
+![png](output_48_0.png)
     
 
+
+
+```python
+
+```
